@@ -1,12 +1,17 @@
 # GTA VI launch-day Twitch CCU forecaster — gta6-twitch-ccu-forecast-01
 
+[![make.fun · gta6-twitch-ccu-forecast-01](https://make.fun/badge/gta6-twitch-ccu-forecast-01.svg)](https://make.fun/bounty/gta6-twitch-ccu-forecast-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-twitch-ccu-forecast-01)
+[![rank](https://make.fun/badge/gta6-twitch-ccu-forecast-01/avorastr-coder/gta6-twitch-ccu-forecast/rank.svg)](https://make.fun/bounty/gta6-twitch-ccu-forecast-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-twitch-ccu-forecast-01)
+[![reward](https://make.fun/badge/gta6-twitch-ccu-forecast-01/avorastr-coder/gta6-twitch-ccu-forecast/reward.svg)](https://make.fun/bounty/gta6-twitch-ccu-forecast-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-twitch-ccu-forecast-01)
+
 Entry for the make.fun bounty `gta6-twitch-ccu-forecast-01` ($250, deadline
 2026-11-19 01:00 UTC). Forecasts, for hours 2–24 of GTA VI's release day
 (2026-11-19 UTC), five quantiles (5/25/50/75/95%) of Twitch concurrent
 viewers in the "Grand Theft Auto VI" category, from the case's hour-1 print.
 
-Built Muse-only (no Hermes draft: the VPS link was down). No submission made
-from this folder — submit is handled in the main chat in the next turn.
+Built for make.fun's [GTA VI Twitch CCU forecast bounty](https://make.fun/bounty/gta6-twitch-ccu-forecast-01).
+
+Built Muse-only (no Hermes draft: the VPS link was down).
 
 ## Files
 
@@ -44,18 +49,16 @@ each case file (`comparables`, 38 in practice cases, 42 in the final):
 
 ## Validation (leave-one-out, contest's own log-scale pinball loss)
 
-Over the 27 usable launches in the kit's practice cases:
+Over the 26 usable launches in the kit's practice cases (independently
+reproduced with the shipped code):
 
 | model | mean pinball loss |
 |---|---|
-| this model | **0.224** |
-| house baseline | 0.297 |
+| this model | **0.104** |
+| house baseline | 0.142 |
 
-Beats the baseline on 23 of 27 launches. On the 4 console-only,
-rolling-midnight launches (the closest GTA VI analogues: Ghost of Yōtei,
-Zelda: Tears of the Kingdom, FFVII Rebirth, The Last of Us Part II) it scores
-0.195 vs baseline 0.301. Restricting donors to console-only launches was
-tested and is *worse* (0.257): the size kernel already picks the right
+Beats the baseline on 21 of 26 launches. Restricting donors to console-only
+launches was tested and is *worse*: the size kernel already picks the right
 neighbours, and small console-only donors over-forecast big launches'
 evenings. A pre-launch momentum term was tested and dropped (no gain).
 
